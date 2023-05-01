@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-const HomePage = () => {
+const Sidebar = ({ children }) => {
   const [sidebarTop, setSidebarTop] = useState(0);
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const HomePage = () => {
             </li>
             <li><a href="#">Data Entry</a>
               <ul>
-               <li> <Link href={"/data-entry/DataForm"}>Form</Link></li>
+                <li> <Link href={"/data-entry/DataForm"}>Form</Link></li>
                 <li><Link href={"/data-entry"}>List</Link></li>
               </ul>
             </li>
@@ -89,7 +89,9 @@ const HomePage = () => {
             maintenance tasks and processes, including work order management, equipment management, and inventory management. The system is expected to reduce manual effort,
             improve accuracy, and increase visibility into maintenance operations.
           </p>
+            {children}
         </div>
+      
       </div>
       <style jsx>{`
         .navbar {
@@ -169,4 +171,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage
+export default Sidebar

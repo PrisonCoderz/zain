@@ -1,10 +1,13 @@
+// @ts-nocheck
+// @ts-ignore
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from '@emotion/styled'
 import { useRouter } from "next/router";
 // mui icon
 import { Edit, Delete } from '@mui/icons-material';
-
+import Sidebar from '../../components/layout/Sidebar'
 
 const Table = styled.table`
 td, th{
@@ -91,6 +94,7 @@ const List = () => {
   }
 
   return (
+  <Sidebar>
     <div className="max-w-4xl mx-auto space-y-4 p-3">
       <h1 className="font-bold text-4xl">List Data Entry</h1>
       <Table className="w-full bg-stone-300">
@@ -102,6 +106,7 @@ const List = () => {
         </tbody>
       </Table>
     </div>
+    </Sidebar>
   );
 };
 

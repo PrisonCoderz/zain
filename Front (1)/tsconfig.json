@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/Roles.js", "src/components/Sidebar1.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/Roles.js", "src/components/layout/Sidebar.tsx"],
   "exclude": ["node_modules"]
 }
