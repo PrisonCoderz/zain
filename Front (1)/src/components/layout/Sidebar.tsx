@@ -1,9 +1,22 @@
+// @ts-nocheck
+//@ts-ignore
+"use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-
+import { useSession, signOut } from "next-auth/react"
+import Router from 'next/router';
+import { useRouter } from 'next/router';
 const Sidebar = ({ children }) => {
+const router = useRouter()
+  const { data: session } = useSession()
+ 
   const [sidebarTop, setSidebarTop] = useState(0);
-
+  const signout = () => {
+    if (session) {
+      signOut()
+    }
+    router.push('/');
+  }
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -23,6 +36,7 @@ const Sidebar = ({ children }) => {
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
           <Link href="/user" className='font-bold'>Users</Link>
+          <li onClick={signout} className='cursor-pointer'>logout</li>
         </ul>
       </nav>
       <div className="container">
@@ -89,9 +103,9 @@ const Sidebar = ({ children }) => {
             maintenance tasks and processes, including work order management, equipment management, and inventory management. The system is expected to reduce manual effort,
             improve accuracy, and increase visibility into maintenance operations.
           </p>
-            {children}
+          {children}
         </div>
-      
+
       </div>
       <style jsx>{`
         .navbar {
